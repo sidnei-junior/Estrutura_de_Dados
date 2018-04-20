@@ -14,7 +14,8 @@ import java.util.LinkedList;
 public class Pilha<T> {
 
     private LinkedList<T> conteudo;
-
+   
+    
     public Pilha() {
         conteudo = new LinkedList<>();
     }
@@ -30,11 +31,49 @@ public class Pilha<T> {
     public T topo() {
         return conteudo.getFirst();
     }
-    
-    public void clear(){
+
+    public void reinicialize() {
         conteudo.clear();
     }
 
+    public String toString() {
+        return conteudo.toString();
+    }
+
+   public String toStringInverse(){
+       String temp = "[";
+       Pilha<String> tempS = new Pilha<>();
+       for(int i = conteudo.size(); i > 0; i--){
+           tempS.empilha(conteudo.get(i).toString());
+       }
+       int N = conteudo.size();
+       for(int i = 0; i < N; i++){
+           temp += tempS.desempilha();
+           temp += ",";
+       }
+       temp += "]";
+       return temp;
+   }
+    
+    static void test2() {
+        Pilha<Double> aPilha = new Pilha<Double>();
+        System.out.println(aPilha);
+        aPilha.empilha(1.1);
+        System.out.println(aPilha);
+        aPilha.empilha(2.1);
+        System.out.println(aPilha);
+        aPilha.empilha(3.1);
+        System.out.println(aPilha);
+        double valor = 0.0;
+        valor = aPilha.desempilha();
+        System.out.println("topo pilha = " + valor);
+        System.out.println(aPilha);
+        valor = aPilha.desempilha();
+        System.out.println("topo pilha = " + valor);
+        System.out.println(aPilha);
+        valor = aPilha.desempilha();
+        System.out.println("topo pilha = " + valor);
+        System.out.println(aPilha);
+    }
+
 }
-
-

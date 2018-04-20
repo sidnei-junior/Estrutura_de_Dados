@@ -37,5 +37,12 @@ public class Operacao {
         return code;
     }
     
-            
+    @Override
+    public String toString(){
+        if (code == 'e'){
+            return Double.toString(a);
+        }else{
+            return String.valueOf(code);
+        }
+    }
 }
