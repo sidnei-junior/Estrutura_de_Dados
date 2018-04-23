@@ -42,14 +42,14 @@ public class Pilha<T> {
 
    public String toStringInverse(){
        String temp = "[";
-       Pilha<String> tempS = new Pilha<>();
-       for(int i = conteudo.size(); i > 0; i--){
-           tempS.empilha(conteudo.get(i).toString());
+       Pilha<T> tempS = new Pilha<>();
+       for(int i = 0 ; i < conteudo.size(); i++){
+           tempS.empilha(conteudo.get(i));
        }
        int N = conteudo.size();
        for(int i = 0; i < N; i++){
-           temp += tempS.desempilha();
-           temp += ",";
+           temp += tempS.desempilha().toString();
+           if (i < N-1) temp += ", ";
        }
        temp += "]";
        return temp;

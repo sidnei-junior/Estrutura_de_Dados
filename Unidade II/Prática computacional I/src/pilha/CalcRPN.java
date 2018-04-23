@@ -85,15 +85,35 @@ public class CalcRPN {
                 hist.reinicialize();
                 break;
             case "hist":
+                System.out.print("Historico = ");
+                System.out.println(hist.toStringInverse());
+                break;
+            case "undo":
+                cancela();
+                System.out.print("Historico = ");
                 System.out.println(hist.toStringInverse());
                 break;
             default:
                 aPilha.empilha(Double.parseDouble(cmd));
+                hist.empilha(new Operacao(Double.parseDouble(cmd)));
 
         }
+        
+        
         // cmd será um string com um caracter apenas e se for um número execute 
     }
-
+    public void cancela(){
+    
+        Operacao opUndo = hist.desempilha();
+        if(opUndo.getCode() == 'e'){
+            aPilha.desempilha();
+        }else{
+            aPilha.desempilha();
+            aPilha.empilha(opUndo.getB());
+            aPilha.empilha(opUndo.getA());
+        }
+    
+    }
     static void test() {
         CalcRPN calc = new CalcRPN();
         System.out.print("3 2 + = ");
