@@ -52,11 +52,19 @@ public class Dijkstra {
 	
 	// atualizacao da distancia, da prioridade, e do predecessor de um no
 	void update(int y, int x) {
+            System.out.println("");
+            System.out.println("y = " + y + ", x = " + x);
+            System.out.println("dist[y] = " + dist[y] + " ----Novo");
+            //System.out.println("dist["+y+"] = " + dist[y]);
+            //System.out.println("dist["+x+"] + g.value("+x+","+y+")= " + (dist[x] + g.value(x,y)));
+            System.out.println("dist[y] ?> dist[x] + g.value(x,y)");
+            System.out.println(dist[y] + " ?> " + dist[x] + " + " + g.value(x,y));
             if(dist[y] > dist[x] + g.value(x,y)){
                 dist[y] = dist[x] + g.value(x,y);
                 pred[y] = x;
                 naoacomodados.add(new Node(y, dist[y]));
             }
+            System.out.println("dist[y] = " + dist[y] + " ----atualizado");
 	}
 	
 	// retorna o próximo nó a ser acomodado
@@ -97,7 +105,7 @@ public class Dijkstra {
                 //System.out.println("step 03 - variavel testeParada = " + testParada);
                 testParada = oneStep();
             }while(testParada != -1 && !settled[dest]);
-            System.out.println("Saiu do while!!!");
+            //System.out.println("Saiu do while!!!");
             if(dist[dest] == Integer.MAX_VALUE){
                 return -1;
             }

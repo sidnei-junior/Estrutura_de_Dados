@@ -25,9 +25,9 @@ public class Test3 {
 		System.out.println("caminho mais curto entre 7 e 2 = " + d.compute());
 
 		// gros graphe
-		System.out.println("\ngrafo grande");
-		g = new Graph("USA-road-d-NY.gr");
-	    d = new Dijkstra(g, 190637, 187333);
-	    System.out.println("caminho mais curto entre 190637 e 187333 = " + d.compute());
+		//System.out.println("\ngrafo grande");
+		//g = new Graph("USA-road-d-NY.gr");
+	   // d = new Dijkstra(g, 190637, 187333);
+	    //System.out.println("caminho mais curto entre 190637 e 187333 = " + d.compute());
 	  }
 }
